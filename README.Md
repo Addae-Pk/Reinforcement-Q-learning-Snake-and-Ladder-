@@ -7,7 +7,13 @@ The game also has two modes, ”circle” which turns the course into a continuo
 or ”no circle” which offers a classic course.
 
 
-## Implementation 
+##Objective 
+
+The goal is to converge to an optimal strategy (using Markov Decision Process). So leading to maximisation of the total reward r of successive steps and in our case of the Snake and Ladder to minimise the costs. 
+
+Q(s, a) ← Q(s, a) + α [r + γ min Q(s′, a′) − Q(s, a)]
+
+## Implementation Q-learning 
 
 Three initial functions Safe Matrix(nbr steps), Normal Matrix(layout, nbr steps, circle) and Risky Matrix(layout, nbr steps, circle) were constructed in order to build the transition probability matrices that the value and policy iteration needed to work. These matrices allow the transition probabilities between states to be adapted according to the location of the traps, the dice used, the structure and the game mode.
 
@@ -19,3 +25,17 @@ Several sub-optimal policy functions have been constructed to develop dice polic
 
 Simulator(layout, circle, Dice, nbr sim, start) = the algo that plays the game conditionnaly to Dice strategy imposed on it, the location of the traps and the game mode. After playing thousands of games (nbr sim), simunlator() returns the average number of turns used to finish the game for the start box. 
 
+
+## Results
+
+Theoretical vs Empirical Results
+
+
+
+Optimal & Suboptimal Strategies
+
+
+
+##Part 2 : Double Q-learning 
+Q1(s, a) ← Q1(s, a) + α [r + γ min Q2(s′, a′) − Q1(s, a)]
+Q2(s, a) ← Q2(s, a) + α [r + γ min Q1(s′, a′) − Q2(s, a)]
