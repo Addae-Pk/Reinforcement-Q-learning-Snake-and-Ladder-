@@ -26,16 +26,3 @@ Several sub-optimal policy functions have been constructed to develop dice polic
 Simulator(layout, circle, Dice, nbr sim, start) = the algo that plays the game conditionnaly to Dice strategy imposed on it, the location of the traps and the game mode. After playing thousands of games (nbr sim), simunlator() returns the average number of turns used to finish the game for the start box. 
 
 
-## Results
-
-Theoretical vs Empirical Results
-
-
-
-Optimal & Suboptimal Strategies
-
-
-
-##Part 2 : Double Q-learning 
-Q1(s, a) ← Q1(s, a) + α [r + γ min Q2(s′, a′) − Q1(s, a)]
-Q2(s, a) ← Q2(s, a) + α [r + γ min Q1(s′, a′) − Q2(s, a)]
